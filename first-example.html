@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Example</title>
+
+  <script>
+    class TimeFormatted extends HTMLElement {
+      
+      constructor () {
+        super();
+        this.rendered = false;
+      }
+
+      render() {
+        let date = new Date(this.getAttribute('datetime') || Date.now());
+
+        this.innerHTML = new Intl.DateTimeFormat("default", {
+          year: this.getAttribute('year') || undefined,
+          month: this.getAttribute('month') || undefined,
+          day: this.getAttribute('day') || undefined,
+          hour: this.getAttribute('hour') || undefined,
+          minute: this.getAttribute('minute') || undefined,
+          second: this.getAttribute('second') || undefined,
+          timeZoneName: this.getAttribute('time-zone-name') || undefined,
+        }).format(date);
+      }
+
+      // browser calls this method when the element is added to the document
+      // (can be called many times if an element is repeatedly added/removed)
+      connectedCallback() {
+        if (!this.rendered) {
+          this.render();
+          this.rendered = true;
+        }
+      }
+
+      static get observedAttributes() {
+        /* array of attribute names to monitor for changes */
+        return ['datetime', 'year', 'month', 'day', 'hour', 'minute', 'second', 'time-zone-name'];
+      }
+
+      // called when one of attributes listed above is modified
+      attributeChangedCallback(name, oldValue, newValue) {
+        this.render();
+      }
+    }
+
+    customElements.define('time-formatted', TimeFormatted);
+    setInterval(() => elem.setAttribute('datetime', new Date()), 1000);
+
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API
+
+    class HelloButton extends HTMLButtonElement {
+      constructor() {
+        super();
+        this.addEventListener('click', () => alert("Hello!"));
+      }
+    }
+
+    customElements.define('hello-button', HelloButton, {extends: 'button'});
+  </script>
+</head>
+<body>
+  
+  <!-- <time-formatted
+    datetime="2025-01-22"
+    year="numeric" month="long" day="numeric"
+    hour="numeric" minute="numeric" second="numeric"
+    time-zone-name="short"
+  ></time-formatted> -->
+
+  <br />
+  
+  <time-formatted id="elem" hour="numeric" minute="numeric" second="numeric"></time-formatted>
+
+  <br /><br />
+
+  <button is="hello-button">Click me</button>
+
+</body>
+</html>
