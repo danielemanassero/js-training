@@ -4,8 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>First Example</title>
+</head>
+<body>
+  
+  <!-- <time-formatted
+    datetime="2025-01-22"
+    year="numeric" month="long" day="numeric"
+    hour="numeric" minute="numeric" second="numeric"
+    time-zone-name="short"
+  ></time-formatted> -->
+
+  <br />
+  
+  <time-formatted id="elem" hour="numeric" minute="numeric" second="numeric"></time-formatted>
+
+  <br /><br />
+
+  <button is="hello-button">Click me</button>
+
+  <br /><br />
+
+  <show-hello name="Daniele"></show-hello>
+
+  <br /><br />
+
+  <div id="clickElem">Click me!</div>
+
+
+  <template id="myTemplate">
+    <style>
+      .main-paragraph {
+        font-weight: bold;
+        color: red;
+      }
+    </style>
+    
+    <p class="main-paragraph">Hello, Daniele Template!</p>
+  </template>
+
 
   <script>
+    /**
+     * {class} TimeFormatted
+     * */
     class TimeFormatted extends HTMLElement {
       
       constructor () {
@@ -50,9 +91,12 @@
     customElements.define('time-formatted', TimeFormatted);
     setInterval(() => elem.setAttribute('datetime', new Date()), 1000);
 
+    
 
-    // https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API
-
+    /**
+     * {class} HelloButton
+     * https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API
+     * */
     class HelloButton extends HTMLButtonElement {
       constructor() {
         super();
@@ -61,24 +105,43 @@
     }
 
     customElements.define('hello-button', HelloButton, {extends: 'button'});
+
+
+
+    /**
+     * {class} ShowHello
+     * */
+    class ShowHello extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        const shadow = this.attachShadow({mode: 'closed'});
+        shadow.innerHTML = `
+          <style>
+            .main-paragraph {
+              font-weight: bold;
+            }
+          </style>
+          
+          <p class="main-paragraph">Hello, ${this.getAttribute('name')}!</p>
+        `;
+      }
+    }
+
+    customElements.define('show-hello', ShowHello);
+
+
+
+    const elem = document.querySelector("#clickElem");
+    const template = document.getElementById("myTemplate");
+    
+    elem.addEventListener('click', () => {
+      elem.attachShadow({mode: 'open'});
+      elem.shadowRoot.append(template.content.cloneNode(true));
+    });
   </script>
-</head>
-<body>
-  
-  <!-- <time-formatted
-    datetime="2025-01-22"
-    year="numeric" month="long" day="numeric"
-    hour="numeric" minute="numeric" second="numeric"
-    time-zone-name="short"
-  ></time-formatted> -->
-
-  <br />
-  
-  <time-formatted id="elem" hour="numeric" minute="numeric" second="numeric"></time-formatted>
-
-  <br /><br />
-
-  <button is="hello-button">Click me</button>
 
 </body>
 </html>
