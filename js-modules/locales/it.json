@@ -1,4 +1,6 @@
 {
-  "title": "Libreria per l'internazionalizzazione",
-  "subtitle": "Libreria per localizzare il tuo sito web o la tua applicazione web"
+  "title": "Libreria per l'<span style=\"color: red\">internazionalizzazione</span>",
+  "subtitle": "Libreria per localizzare il tuo sito web o la tua applicazione web",
+  "description": "Questa è la versione italiana della pagina",
+  "clickHere": "Clicca qui!"
 }

@@ -1,4 +1,6 @@
 {
-  "title": "Internationalization library",
-  "subtitle": "Library to localize your web site or web app"
+  "title": "<span style=\"color: red\">Internationalization</span> library",
+  "subtitle": "Library to localize your web site or web app",
+  "description": "This is the English version of the page",
+  "clickHere": "Click here!"
 }

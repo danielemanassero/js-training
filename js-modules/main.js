@@ -1,8 +1,21 @@
-import Internationalization from './internationalization.js';
+(async function() {
 
-(async function print() {
-  const i = new Internationalization();
+  const urlParams = new URLSearchParams(window.location.search);
+  const lang = (urlParams.get('lang') !== null) ? urlParams.get('lang') : 'en';
+  window.sessionStorage.setItem("lang", lang);
 
-  document.querySelector('#pageTitle').innerHTML = await i.getLabel('title');
-  document.querySelector('#pageSubtitle').innerHTML = await i.getLabel('subtitle');
+  import(`./locales/${lang}.json`)
+      .then(translations => {
+        window.sessionStorage.setItem('labels', JSON.stringify(translations));
+
+        // Get all elements with the data-text attribute
+        const elements = document.querySelectorAll('[data-text]');
+        elements.forEach(element => {
+          const key = element.getAttribute('data-text');
+          element.innerHTML = translations[key];
+        });
+      })
+      .catch(error => {
+        console.error('Import error:', error);
+      });
 })();
