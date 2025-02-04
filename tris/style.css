@@ -1,0 +1,48 @@
+.container {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  column-gap: 10px;
+  row-gap: 10px;
+  justify-items: center;
+  align-items: center;
+  /* border: 1px solid #000; */
+}
+
+.instructions {
+  margin-bottom: 30px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.instructions img {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.container > * {
+  background-color: darkgray;
+  transition: all 0.3s ease-in-out;
+}
+.container > *:hover {
+  background-color: #f0f0f0;
+}
+
+.grid-item {
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+}
+.grid-item.x {
+  background-image: url('./assets/x.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.grid-item.o {
+  background-image: url('./assets/o.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
