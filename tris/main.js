@@ -3,6 +3,7 @@
   let round = "o";
   let clicked = [];
   const gridItems = document.querySelectorAll('.grid-item');
+  const resetButton = document.querySelector('.reset');
 
   gridItems.forEach(item => {
     item.addEventListener('click', e => {
@@ -15,5 +16,13 @@
       }
     });
   });
-  
+
+  resetButton.addEventListener('click', () => {
+    round = "o";
+    gridItems.forEach(item => {
+      item.classList.remove('o', 'x');
+    });
+    clicked = [];
+  });
+
 })();
