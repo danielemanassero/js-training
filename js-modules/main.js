@@ -1,10 +1,10 @@
-(async function() {
+(async function() {;
 
   const urlParams = new URLSearchParams(window.location.search);
   const lang = (urlParams.get('lang') !== null) ? urlParams.get('lang') : 'en';
   window.sessionStorage.setItem("lang", lang);
 
-  import(`./locales/${lang}.json`)
+  import(`./locales/${lang}.json`, {with: { type:'json' }})
       .then(translations => {
         window.sessionStorage.setItem('labels', JSON.stringify(translations));
 
