@@ -5,17 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
     <title>Shopping List</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
   </head>
   <body>
     <h1>My shopping list</h1>
 
     <section>
       <div>
-        <label>
+        <label for="item">
           Enter a new item:
-          <input type="text" name="inputNewItem" />
+          <input type="text" name="addItemInput" id="addItemInput" />
         </label>
-        <button type="button">Add item</button>
+        <button type="button" id="addItemButton">Add item</button>
       </div>
 
       <ul class="shoppingList"></ul>
