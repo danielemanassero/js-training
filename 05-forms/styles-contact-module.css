@@ -38,6 +38,10 @@ textarea {
   height: 5em;
 }
 
+input[type="checkbox"] {
+  width: 20px;
+}
+
 .button {
   padding-left: 90px; /* same size as the label elements */
 }
