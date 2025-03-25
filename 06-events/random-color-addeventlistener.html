@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Random color example — event handler attribute</title>
+    <style>
+      button {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <button id="changeBgColor">Change color</button>
+    <button id="changeFontColor">Change font color</button>
+    <button id="abortEvents">Stop Buttons Events</button>
+
+    <hr />
+
+    <h1>Test Events and AbortController</h1>
+    
+    <script>
+      const btnBg = document.querySelector('#changeBgColor');
+      const btnFont = document.querySelector('#changeFontColor');
+      const title = document.querySelector('h1');
+      const controller = new AbortController(); // https://developer.mozilla.org/en-US/docs/Web/API/AbortController
+      const signal = controller.signal;
+
+      function random(number) {
+        return Math.floor(Math.random() * (number+1));
+      }
+
+      function changeBackground() {
+        const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+        document.body.style.backgroundColor = rndCol;
+      }
+
+      function changeFontColor() {
+        const rndCol = `rgb(${random(255)} ${random(255)} ${random(255)})`;
+        title.style.color = rndCol;
+      }
+
+      btnBg.addEventListener('click', changeBackground, { signal });
+      btnFont.addEventListener('click', changeFontColor, { signal });
+      abortEvents.addEventListener('click', () => controller.abort(), { signal });
+    </script>
+  </body>
+</html>
