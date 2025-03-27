@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Events Tests</title>
+    
+    <style>
+      p {
+        color: purple;
+        margin: 0.5em 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      canvas {
+        border: 1px solid black;
+      }
+
+      .button-bar {
+        padding: 50px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <button id="changeText">Random word</button>
+    </p>
+
+    <hr />
+
+    <canvas width="480" height="320" tabindex="0"></canvas>
+
+    <hr />
+
+    <div class="button-bar">
+      <button data-color="red">Red</button>
+      <button data-color="yellow">Yellow</button>
+      <button data-color="green">Green</button>
+      <button data-color="purple">Purple</button>
+    </div>
+    
+    <script>
+      /*
+        SKILLS TEST
+        https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting/Test_your_skills:_Events
+      */
+
+      // TEST 1
+      const alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+      const changeTextButton = document.querySelector('#changeText');
+      changeTextButton.addEventListener('click', function() {
+        const randomWord = Array.from({ length: 7 }, () => alphabet[Math.floor(Math.random() * alphabet.length)]).join('');
+        changeTextButton.textContent = randomWord;
+      });
+
+
+      // TEST 2
+      const canvas = document.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
+
+      function drawCircle(x, y, size) {
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.beginPath();
+        ctx.fillStyle = 'black';
+        ctx.arc(x, y, size, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+
+      let x = 50;
+      let y = 50;
+      const size = 30;
+      drawCircle(x, y, size);
+
+      document.addEventListener('keypress', function(e) {
+
+        switch (e.key) {
+          case 'd':
+            if (x < 480 - size - 50) {
+              x += 5;
+            }
+            break;
+          case 's':
+            if (y < 320 - size - 50) {
+              y += 5;
+            }
+            break;
+          case 'a':
+            if (x > 50) {
+              x -= 5;
+            }
+            break;
+          case 'w':
+            if (y > 50) {
+              y -= 5;
+            }
+            break;
+        }
+
+        drawCircle(x, y, size);
+      });
+
+
+      // TEST 3
+      const buttonBar = document.querySelector('.button-bar');
+      buttonBar.addEventListener('click', function(e) {
+        if (e.target.tagName === 'BUTTON') {
+          // buttonBar.style.backgroundColor = e.target.dataset.color;
+          e.currentTarget.style.backgroundColor = e.target.dataset.color;
+        }
+      });
+    </script>
+  </body>
+</html>

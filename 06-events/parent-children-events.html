@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Parent and Children elements event handler</title>
+    <style>
+      .hidden { display: none; }
+      #videoPlay { margin-bottom: 15px; }
+      #videoContainer { 
+        background-color: darkseagreen; 
+        padding: 30px; 
+        text-align: center; }
+    </style>
+  </head>
+  <body>
+    <!-- <div id="container">
+      <button>Click me!</button>
+    </div>
+
+    <pre id="output"></pre>     -->
+
+    <button id="videoPlay">Display video</button>
+
+    <div class="hidden" id="videoContainer">
+      <video>
+        <source
+          src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+          type="video/webm" />
+        <p>
+          Your browser doesn't support HTML video. Here is a
+          <a href="rabbit320.mp4">link to the video</a> instead.
+        </p>
+      </video>
+    </div>
+
+    <script>
+      /********** 
+       * Parent and Children elements event handler
+      **********/
+      
+      // const output = document.querySelector('#output');
+      // const container = document.querySelector('#container');
+      // const button = document.querySelector('button');
+
+      // document.body.addEventListener('click', handleClick);
+      // container.addEventListener('click', handleClick);
+      // button.addEventListener('click', handleClick);
+
+      // document.body.addEventListener('click', handleClick, { capture: true });
+      // container.addEventListener('click', handleClick, { capture: true });
+      // button.addEventListener('click', handleClick);
+
+      // function handleClick(e) {
+      //   console.log('e.target', e.target);
+      //   console.log('e.currentTarget', e.currentTarget);
+      //   console.log('/**********/');
+      //   output.textContent += `You clicked on a ${e.currentTarget.tagName} element \n`;
+      // }
+
+
+      /********** 
+       * Video event handler
+      **********/
+      
+      const btn = document.querySelector('#videoPlay');
+      const box = document.querySelector('#videoContainer');
+      const video = box.querySelector('video');
+
+      btn.addEventListener('click', () => { 
+        box.classList.remove('hidden'); 
+      });
+      
+      video.addEventListener('click', (e) => {
+        e.stopPropagation(); 
+        video.play(); 
+      });
+
+      box.addEventListener('click', () => { 
+        box.classList.add('hidden'); 
+        video.pause();
+      });
+    </script>
+  </body>
+</html>
