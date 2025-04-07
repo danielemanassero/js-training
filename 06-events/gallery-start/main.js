@@ -27,8 +27,10 @@ for (let i = 0; i < images.length; i++) {
 thumbBar.addEventListener('click', (e) => {
     const imagePath = e.target.src;
     const imageText = e.target.alt;
-    displayedImage.setAttribute('src', imagePath);
-    displayedImage.setAttribute('alt', imageText);
+    // displayedImage.setAttribute('src', imagePath);
+    // displayedImage.setAttribute('alt', imageText);
+    displayedImage.src = imagePath;
+    displayedImage.alt = imageText;
 });
 
 btn.addEventListener('click', (e) => {
