@@ -98,3 +98,25 @@
     }
   }
 }
+
+.stepContainer {
+  width: 100%;
+  min-height: 450px;
+  background-color: #fff;
+  text-align: left;
+  padding: 1rem;
+
+  @media screen and (min-width: 768px) {
+    padding: 1.25rem;
+  }
+
+  p {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
