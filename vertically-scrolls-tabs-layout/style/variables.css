@@ -1,0 +1,11 @@
+/*
+:root {
+  --iveco-blue: #1a61ff;
+}
+*/
+
+@property --iveco-blue {
+    syntax: "<color>";
+    initial-value: #1a61ff;
+    inherits: false;
+  }
