@@ -73,25 +73,23 @@ div {
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
   
-    /*
     @media screen and (min-width: 768px) {
       padding: 1.25rem;
       height: 95px;
     }
-    */
   
-    .current {
+    &.current {
       background-color: #fff;
       opacity: 1;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
   
-    .prev {
+    &.prev {
       cursor: pointer;
       opacity: 1;
   
-      & :hover {
+      &:hover {
         opacity: 0.8;
       }
     }
@@ -101,12 +99,11 @@ div {
       align-items: center;
 
       .stepNumberWrapper {
-        width: 7%;
-        /*
-        @media screen and (min-width: var.$portrait) { width: 10%; }
-        @media screen and (min-width: var.$medium) { width: 7%; }
-        @media screen and (min-width: var.$large) { width: 5%; }
-        */
+        width: 15%;
+        
+        @media screen and (min-width: 768px) { width: 10%; }
+        @media screen and (min-width: 1024px) { width: 7%; }
+        /* @media screen and (min-width: 1366px) { width: 5%; } */
 
         .stepNumber {
             color: #fff;
@@ -124,21 +121,18 @@ div {
             justify-content: center;
             margin-right: 1rem;
         
-            /*
             @media screen and (min-width: 768px) {
               margin-right: 1.5rem;
             }
-            */
           }
       }
 
       .stepTextWrapper {
-        width: 93%;
-        /*
-        @media screen and (min-width: var.$portrait) { width: 90%; }
-        @media screen and (min-width: var.$medium) { width: 93%; }
-        @media screen and (min-width: var.$large) { width: 95%; }
-        */
+        width: 85%;
+
+        @media screen and (min-width: 768px) { width: 90%; }
+        @media screen and (min-width: 1024px) { width: 93%; }
+        /* @media screen and (min-width: 1366px) { width: 95%; } */
 
         .stepText {
             color: #000;
@@ -148,11 +142,9 @@ div {
             font-family: Arial, Helvetica, sans-serif;
             text-align: left;
         
-            /*
             @media screen and (min-width: 768px) {
                 font-size: 1.5rem;
             }
-            */
           }
       }
     }
