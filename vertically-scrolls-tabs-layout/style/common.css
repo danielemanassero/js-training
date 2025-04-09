@@ -1,5 +1,6 @@
 body {
     font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -34,4 +35,42 @@ p {
 
 div {
   box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+.continueButtonWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.continueButton {
+  all: unset;
+  padding-top: 0.875rem;
+  padding-bottom: 0.875rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  background-color: var(--iveco-light-blue);
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: var(--iveco-dark-blue);
+  }
+
+  &:disabled {
+    cursor: auto;
+    background-color: var(--dark-grey);
+  }
 }

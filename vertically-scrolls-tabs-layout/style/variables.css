@@ -5,7 +5,25 @@
 */
 
 @property --iveco-blue {
-    syntax: "<color>";
-    initial-value: #1a61ff;
-    inherits: false;
-  }
+  syntax: "<color>";
+  initial-value: #1a61ff;
+  inherits: false;
+}
+
+@property --iveco-light-blue {
+  syntax: "<color>";
+  initial-value: #1554FF;
+  inherits: false;
+}
+
+@property --iveco-dark-blue {
+  syntax: "<color>";
+  initial-value: #002373;
+  inherits: false;
+}
+
+@property --dark-grey {
+  syntax: "<color>";
+  initial-value: #424242;
+  inherits: true;
+}

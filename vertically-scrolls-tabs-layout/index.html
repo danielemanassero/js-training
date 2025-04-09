@@ -12,27 +12,14 @@
         <div id="page-container">
           
           <ul id="step-list">
-            <li class="step">
-              <div class="stepButton prev">
+            <li class="step" id="step1">
+              <div class="stepButton current">
                 <div class="stepButtonHead">
                   <div class="stepNumberWrapper">
                     <div class="stepNumber">1</div>
                   </div>
                   <div class="stepTextWrapper">
                     <div class="stepText">First Step</div>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <li class="step">
-              <div class="stepButton current">
-                <div class="stepButtonHead">
-                  <div class="stepNumberWrapper">
-                    <div class="stepNumber">2</div>
-                  </div>
-                  <div class="stepTextWrapper">
-                    <div class="stepText">Second Step</div>
                   </div>
                 </div>
               </div>
@@ -44,12 +31,40 @@
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
                 </p>
                 <p>
-                  <button type="button">CONTINUA</button>
+                  <span class="continueButtonWrapper">
+                    <button type="button" class="continueButton" data-goto="step2">CONTINUE</button>
+                  </span>
+                </p>
+              </div>
+            </li>
+
+            <li class="step" id="step2">
+              <div class="stepButton">
+                <div class="stepButtonHead">
+                  <div class="stepNumberWrapper">
+                    <div class="stepNumber">2</div>
+                  </div>
+                  <div class="stepTextWrapper">
+                    <div class="stepText">Second Step</div>
+                  </div>
+                </div>
+              </div>
+              <div class="stepContainer hidden">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                </p>
+                <p>
+                  <span class="continueButtonWrapper">
+                    <button type="button" class="continueButton" data-goto="step3">CONTINUE</button>
+                  </span>
                 </p>
               </div>
             </li>
             
-            <li class="step">
+            <li class="step" id="step3">
               <div class="stepButton">
                 <div class="stepButtonHead">
                   <div class="stepNumberWrapper">
@@ -60,9 +75,22 @@
                   </div>
                 </div>
               </div>
+              <div class="stepContainer hidden">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                </p>
+                <p>
+                  <span class="continueButtonWrapper">
+                    <button type="button" class="continueButton" data-goto="step4">CONTINUE</button>
+                  </span>
+                </p>
+              </div>
             </li>
             
-            <li class="step">
+            <li class="step" id="step4">
               <div class="stepButton">
                 <div class="stepButtonHead">
                   <div class="stepNumberWrapper">
@@ -73,6 +101,19 @@
                   </div>
                 </div>
               </div>
+              <div class="stepContainer hidden">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                </p>
+                <p>
+                  <span class="continueButtonWrapper">
+                    <button type="button" class="continueButton" data-goto="step1">RESTART</button>
+                  </span>
+                </p>
+              </div>
             </li>
           </ul>
           
@@ -80,6 +121,6 @@
       </div>
     </div>
     
-    <script src="main.js"></script>
+    <script src="scripts/main.js" type="module"></script>
   </body>
 </html>
